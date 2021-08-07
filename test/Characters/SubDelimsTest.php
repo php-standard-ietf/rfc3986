@@ -5,37 +5,56 @@ declare(strict_types=1);
 namespace IETFTest\Rfc3986\Characters;
 
 use IETF\Rfc3986\Characters\Reserved;
-use IETF\Rfc3986\Characters\SubDelims;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class SubDelimsTest extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            [":", true],
-            ["/", true],
-            ["?", true],
-            ["#", true],
-            ["[", true],
-            ["]", true],
-            ["@", true],
-            ["!", true],
-            ["$", true],
-            ["&", true],
-            ["'", true],
-            ["(", true],
-            [")", true],
-            ["*", true],
-            ["+", true],
-            [",", true],
-            [";", true],
-            ["=", true],
-            ["a", false],
-            ["0", false],
+            ':',
+            '/',
+            '?',
+            '#',
+            '[',
+            ']',
+            '@',
+            '!',
+            '$',
+            '&',
+            "'",
+            '(',
+            ')',
+            '*',
+            '+',
+            ',',
+            ';',
+            '=',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            'a',
+            '0',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**

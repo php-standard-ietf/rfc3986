@@ -7,31 +7,51 @@ namespace IETFTest\Rfc3986\Characters;
 use IETF\Rfc3986\Characters\GenDelims;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class GenDelimsTest extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            [":", true],
-            ["/", true],
-            ["?", true],
-            ["#", true],
-            ["[", true],
-            ["]", true],
-            ["@", true],
-            ["!", false],
-            ["$", false],
-            ["&", false],
-            ["(", false],
-            [")", false],
-            ["!", false],
-            ["*", false],
-            [",", false],
-            [";", false],
-            ["=", false],
+            ':',
+            '/',
+            '?',
+            '#',
+            '[',
+            ']',
+            '@',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            '!',
+            '$',
+            '&',
+            '(',
+            ')',
+            '!',
+            '*',
+            ',',
+            ';',
+            '=',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**

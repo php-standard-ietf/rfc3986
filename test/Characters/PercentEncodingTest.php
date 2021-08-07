@@ -7,26 +7,46 @@ namespace IETFTest\Rfc3986\Characters;
 use IETF\Rfc3986\Characters\PercentEncoding;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class PercentEncodingTest extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            ["%00", true],
-            ["%99", true],
-            ["%AA", true],
-            ["%FF", true],
-            ["%GG", false],
-            ["00", false],
-            ["99", false],
-            ["AA", false],
-            ["FF", false],
-            ["%", false],
-            ["%aa", false],
-            ["%ff", false],
+            '%00',
+            '%99',
+            '%AA',
+            '%FF',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            '%GG',
+            '00',
+            '99',
+            'AA',
+            'FF',
+            '%',
+            '%aa',
+            '%ff',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**

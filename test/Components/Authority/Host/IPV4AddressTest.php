@@ -7,6 +7,7 @@ namespace IETFTest\Rfc3986\Components\Authority\Host\IPV4Address;
 use IETF\Rfc3986\Components\Authority\Host\IPV4Address;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class IPV4AddressTest extends TestCase
