@@ -16,3 +16,39 @@ common base and to centralize them in the php-standard-ietf organization.
   - [x] reserved
   - [x] sub-delims
   - [x] unreserved
+- [ ] Components
+  - [ ] Authority
+      - [ ] Host
+          - [ ] IP-literal
+          - [x] IPv4address
+          - [ ] reg-name
+      - [ ] IPv4 Address
+          - [ ] dec-octet
+      - [ ] IPv6address
+          - [x] hs16
+          - [ ] ls32
+      - [ ] IPvFuture
+      - [ ] Port
+      - [ ] UserInfo
+  - [ ] Path
+    - [ ] path-abempty
+    - [ ] path-absolute
+    - [ ] path-empty
+    - [ ] path-noscheme
+    - [ ] pchar
+    - [ ] path-rootless
+    - [ ] segment
+    - [ ] segment-nz
+    - [ ] segment-nz-nc
+  - [ ] fragment
+  - [ ] hier-part
+  - [ ] path
+  - [ ] query
+  - [ ] scheme
+- [ ] absolute-URI
+- [ ] relative-part
+- [ ] relative-ref
+- [ ] URI
+- [ ] URI-reference
+
+
