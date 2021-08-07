@@ -8,7 +8,7 @@ Simple package to centralize values from the RFC3986
 Objective of those vendors is to extract constant and pattern from the RFCs so all the PHP community can work from a 
 common base and to centralize them in the php-standard-ietf organization.
 
-## TODO
+## Tasks
 
 - [x] Characters
   - [x] gen-delims
