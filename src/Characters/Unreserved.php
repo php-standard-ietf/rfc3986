@@ -8,12 +8,12 @@ use IETF\Rfc5234\Alpha;
 use IETF\Rfc5234\Digit;
 
 /**
- * @link https://datatracker.ietf.org/doc/html/rfc3986#section-2.2
+ * @link https://datatracker.ietf.org/doc/html/rfc3986#section-2.3
  */
 interface Unreserved
 {
     /**
      * ABNF: unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
      */
-    const REGEX = '('.Alpha::REGEX.'|'.Digit::REGEX.'|\-|\.|\_|\~)';
+    const REGEX = '(' . Alpha::REGEX . '|' . Digit::REGEX . '|\-|\.|\_|\~)';
 }

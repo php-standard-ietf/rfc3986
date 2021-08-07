@@ -12,5 +12,5 @@ interface Reserved
     /**
      * ABNF: 'reserved = gen-delims / sub-delims'
      */
-    const REGEX = '('.GenDelims::REGEX.'|'.SubDelims::REGEX.')';
+    const REGEX = '(' . GenDelims::REGEX . '|' . SubDelims::REGEX . ')';
 }

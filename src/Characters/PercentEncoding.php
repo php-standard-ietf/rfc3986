@@ -14,5 +14,5 @@ interface PercentEncoding
     /**
      * ABNF: pct-encoded = "%" HEXDIG HEXDIG
      */
-    const REGEX = '(%'.HexDig::REGEX.HexDig::REGEX.')';
+    const REGEX = '(%' . HexDig::REGEX . HexDig::REGEX . ')';
 }
