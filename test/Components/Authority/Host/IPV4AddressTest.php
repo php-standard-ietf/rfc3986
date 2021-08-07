@@ -11,20 +11,44 @@ use function preg_match;
 
 class IPV4AddressTest extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            'new lines should not accept 1' => ["00000001.00000010.00000011.00000100\n", false],
-            'new lines should not accept 2' => ["001.002.003.004\n", false],
-            'new lines should not accept 3' => ["a0.b0.c0.d0\n", false],
-            'all-numeric'                   => ['111111111111', false],
-            'first-quartet'                 => ['111.111111111', false],
-            'first-octet'                   => ['111111.111111', false],
-            'last-quartet'                  => ['111111111.111', false],
-            'first-second-quartet'          => ['111.111.111111', false],
-            'first-fourth-quartet'          => ['111.111111.111', false],
-            'third-fourth-quartet'          => ['111111.111.111', false],
+            '0.0.0.0',
+            '255.255.255.255',
+            '192.168.0.1',
+            '172.0.0.1',
+            '8.8.8.8',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            "00000001.00000010.00000011.00000100\n",
+            "001.002.003.004\n",
+            "a0.b0.c0.d0\n",
+            '111111111111',
+            '111.111111111',
+            '111111.111111',
+            '111111111.111',
+            '111.111.111111',
+            '111.111111.111',
+            '111111.111.111',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**

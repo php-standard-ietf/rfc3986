@@ -11,30 +11,49 @@ use function preg_match;
 
 class DecOctetTest extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            ['0', true],
-            ['9', true],
-            ['10', true],
-            ['99', true],
-            ['200', true],
-            ['249', true],
-            ['250', true],
-            ['255', true],
-            ['00', false],
-            ['000', false],
-            ['09', false],
-            ['009', false],
-            ['010', false],
-            ['099', false],
-            ['0200', false],
-            ['256', false],
-            ['2550', false],
-            ['a', false],
-            ['A', false],
-            ['-1', false],
+            '0',
+            '9',
+            '10',
+            '99',
+            '200',
+            '249',
+            '250',
+            '255',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            '00',
+            '000',
+            '09',
+            '009',
+            '010',
+            '099',
+            '0200',
+            '256',
+            '2550',
+            'a',
+            'A',
+            '-1',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**
@@ -45,7 +64,7 @@ class DecOctetTest extends TestCase
         string $value,
         bool $expected
     ): void {
-        $actual = preg_match('/^' . DecOctet::REGEX . '$/', $value) === 1;
+        $actual = preg_match('/^'.DecOctet::REGEX.'$/', $value) === 1;
 
         $this->assertEquals($expected, $actual, $value);
     }

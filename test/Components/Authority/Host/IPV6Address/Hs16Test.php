@@ -11,27 +11,48 @@ use function preg_match;
 
 class Hs16Test extends TestCase
 {
-    public function examples(): array
+    public static function validValues(): array
     {
         return [
-            ['0', true],
-            ['00', true],
-            ['000', true],
-            ['0000', true],
-            ['F', true],
-            ['FF', true],
-            ['FFF', true],
-            ['FFFF', true],
-            ['G', false],
-            ['GG', false],
-            ['GGG', false],
-            ['GGGG', false],
-            ['00000', false],
-            ['f', false],
-            ['ff', false],
-            ['fff', false],
-            ['ffff', false],
+            '0',
+            '00',
+            '000',
+            '0000',
+            '0F',
+            '00FF',
+            'F',
+            'FF',
+            'FFF',
+            'FFFF',
         ];
+    }
+
+    public static function invalidValues(): array
+    {
+        return [
+            '00000',
+            'G',
+            'G',
+            'GGG',
+            'GGGG',
+            'f',
+            'ff',
+            'fff',
+            'ffff',
+        ];
+    }
+
+    public function examples(): array
+    {
+        $validValues = array_map(function ($value) {
+            return [$value, true];
+        }, self::validValues());
+
+        $invalidValues = array_map(function ($value) {
+            return [$value, false];
+        }, self::invalidValues());
+
+        return $validValues + $invalidValues;
     }
 
     /**
@@ -42,7 +63,7 @@ class Hs16Test extends TestCase
         string $value,
         bool $expected
     ): void {
-        $actual = preg_match('/^' . Hs16::REGEX . '$/', $value) === 1;
+        $actual = preg_match('/^'.Hs16::REGEX.'$/', $value) === 1;
 
         $this->assertEquals($expected, $actual, $value);
     }
