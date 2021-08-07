@@ -1,0 +1,58 @@
+{
+  "name": "php-standard-ietf/rfc3986",
+  "type": "library",
+  "description": "Standard IETF Rfc3986 transposed to PHP.",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "rfc3986",
+    "ietf",
+    "standard",
+    "uri",
+    "Uniform Resource Identifier"
+  ],
+  "homepage": "https://github.com/php-standard-ietf/rfc-3986",
+  "support": {
+    "email": "github-support@swarmtech.fr"
+  },
+  "config": {
+    "process-timeout": 600,
+    "sort-packages": true
+  },
+  "authors": [
+    {
+      "name": "gary gitton",
+      "homepage": "http://www.linkedin.com/in/garygitton"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "IETF\\Rfc3986\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "IETFTest\\Rfc3986\\": "test/"
+    }
+  },
+  "require": {
+    "php": "^7.3 || ~8.0.0",
+    "php-standard-ietf/rfc5234": "^1.0"
+  },
+  "require-dev": {
+    "laminas/laminas-coding-standard": "^2.3",
+    "phpunit/phpunit": "^9.5",
+    "psalm/plugin-phpunit": "^0.15.1",
+    "vimeo/psalm": "^4.5.2"
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+    "static-analysis": "psalm --shepherd --stats"
+  }
+}
