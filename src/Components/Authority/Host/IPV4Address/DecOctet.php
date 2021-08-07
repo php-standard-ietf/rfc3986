@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IETF\Rfc3986\Components\Authority\IPV4Address;
+namespace IETF\Rfc3986\Components\Authority\Host\IPV4Address;
 
 use IETF\Rfc5234\Digit;
 

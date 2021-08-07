@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IETFTest\Rfc3986\Components;
+namespace IETFTest\Rfc3986\Components\Authority\Host\IPV4Address;
 
 use IETF\Rfc3986\Components\Authority\Host\IPV4Address;
 use PHPUnit\Framework\TestCase;

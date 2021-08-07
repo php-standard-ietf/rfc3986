@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IETFTest\Rfc3986\Components\Authority\IPV6Address;
+namespace IETFTest\Rfc3986\Components\Authority\Host\IPV6Address;
 
-use IETF\Rfc3986\Components\Authority\IPV6Address\Hs16;
+use IETF\Rfc3986\Components\Authority\Host\IPV6Address\Hs16;
 use PHPUnit\Framework\TestCase;
 
 use function preg_match;

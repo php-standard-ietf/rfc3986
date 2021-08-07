@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IETFTest\Rfc3986\Components\Authority\IPV4Address;
+namespace IETFTest\Rfc3986\Components\Authority\Host\IPV4Address;
 
-use IETF\Rfc3986\Components\Authority\IPV4Address\DecOctet;
+use IETF\Rfc3986\Components\Authority\Host\IPV4Address\DecOctet;
 use PHPUnit\Framework\TestCase;
 
 use function preg_match;

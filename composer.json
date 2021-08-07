@@ -1,7 +1,7 @@
 {
   "name": "php-standard-ietf/rfc3986",
   "type": "library",
-  "description": "Standard IETF Rfc3986 transposed to PHP.",
+  "description": "Standard IETF Rfc3986 (URI) transposed to PHP",
   "license": "BSD-3-Clause",
   "keywords": [
     "rfc3986",
