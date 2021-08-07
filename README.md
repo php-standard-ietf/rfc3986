@@ -22,8 +22,8 @@ common base and to centralize them in the php-standard-ietf organization.
           - [ ] IP-literal
           - [x] IPv4address
           - [ ] reg-name
-      - [ ] IPv4 Address
-          - [ ] dec-octet
+      - [x] IPv4 Address
+          - [x] dec-octet
       - [ ] IPv6address
           - [x] hs16
           - [ ] ls32

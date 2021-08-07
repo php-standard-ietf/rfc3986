@@ -14,17 +14,16 @@ class IPV4AddressTest extends TestCase
     public function examples(): array
     {
         return [
-            'new lines should not accept 1' => ["00000001.00000010.00000011.00000100\n",false],
-            'new lines should not accept 2' => ["001.002.003.004\n",false],
-            'new lines should not accept 3' => ["a0.b0.c0.d0\n",false],
-
-            'all-numeric'          => ['111111111111', false],
-            'first-quartet'        => ['111.111111111', false],
-            'first-octet'          => ['111111.111111', false],
-            'last-quartet'         => ['111111111.111', false],
-            'first-second-quartet' => ['111.111.111111', false],
-            'first-fourth-quartet' => ['111.111111.111', false],
-            'third-fourth-quartet' => ['111111.111.111', false],
+            'new lines should not accept 1' => ["00000001.00000010.00000011.00000100\n", false],
+            'new lines should not accept 2' => ["001.002.003.004\n", false],
+            'new lines should not accept 3' => ["a0.b0.c0.d0\n", false],
+            'all-numeric'                   => ['111111111111', false],
+            'first-quartet'                 => ['111.111111111', false],
+            'first-octet'                   => ['111111.111111', false],
+            'last-quartet'                  => ['111111111.111', false],
+            'first-second-quartet'          => ['111.111.111111', false],
+            'first-fourth-quartet'          => ['111.111111.111', false],
+            'third-fourth-quartet'          => ['111111.111.111', false],
         ];
     }
 
