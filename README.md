@@ -26,8 +26,8 @@ common base and to centralize them in the php-standard-ietf organization.
           - [x] dec-octet
       - [ ] IPv6address
           - [x] hs16
-          - [ ] ls32
-      - [ ] IPvFuture
+          - [x] ls32
+      - [x] IPvFuture
       - [ ] Port
       - [ ] UserInfo
   - [ ] Path
