@@ -8,6 +8,7 @@ use IETF\Rfc3986\Components\Authority\Host\IPV6Address\Ls32;
 use IETFTest\Rfc3986\Components\Authority\Host\IPV4Address\IPV4AddressTest;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class Ls32Test extends TestCase
@@ -17,7 +18,7 @@ class Ls32Test extends TestCase
         $values = [];
         foreach (Hs16Test::validValues() as $value) {
             foreach (Hs16Test::validValues() as $value2) {
-                $values[] = $value.':'.$value2;
+                $values[] = $value . ':' . $value2;
             }
         }
 
@@ -31,13 +32,13 @@ class Ls32Test extends TestCase
         $values = [];
         foreach (Hs16Test::validValues() as $value) {
             foreach (Hs16Test::invalidValues() as $value2) {
-                $values[] = $value.':'.$value2;
+                $values[] = $value . ':' . $value2;
             }
         }
 
         foreach (Hs16Test::invalidValues() as $value) {
             foreach (Hs16Test::validValues() as $value2) {
-                $values[] = $value.':'.$value2;
+                $values[] = $value . ':' . $value2;
             }
         }
 
@@ -54,7 +55,10 @@ class Ls32Test extends TestCase
             return [$value, false];
         }, self::invalidValues());
 
-        return $validValues + $invalidValues;
+        return array_merge(
+            $validValues,
+            $invalidValues
+        );
     }
 
     /**
@@ -65,7 +69,7 @@ class Ls32Test extends TestCase
         string $value,
         bool $expected
     ): void {
-        $actual = preg_match('/^'.Ls32::REGEX.'$/', $value) === 1;
+        $actual = preg_match('/^' . Ls32::REGEX . '$/', $value) === 1;
 
         $this->assertEquals($expected, $actual, $value);
     }

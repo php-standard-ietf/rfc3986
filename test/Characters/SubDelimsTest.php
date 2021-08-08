@@ -54,7 +54,10 @@ class SubDelimsTest extends TestCase
             return [$value, false];
         }, self::invalidValues());
 
-        return $validValues + $invalidValues;
+        return array_merge(
+            $validValues,
+            $invalidValues
+        );
     }
 
     /**

@@ -7,6 +7,7 @@ namespace IETFTest\Rfc3986\Components\Authority\Host\IPV6Address;
 use IETF\Rfc3986\Components\Authority\Host\IPV6Address\Hs16;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function preg_match;
 
 class Hs16Test extends TestCase
@@ -52,7 +53,10 @@ class Hs16Test extends TestCase
             return [$value, false];
         }, self::invalidValues());
 
-        return $validValues + $invalidValues;
+        return array_merge(
+            $validValues,
+            $invalidValues
+        );
     }
 
     /**
@@ -63,7 +67,7 @@ class Hs16Test extends TestCase
         string $value,
         bool $expected
     ): void {
-        $actual = preg_match('/^'.Hs16::REGEX.'$/', $value) === 1;
+        $actual = preg_match('/^' . Hs16::REGEX . '$/', $value) === 1;
 
         $this->assertEquals($expected, $actual, $value);
     }

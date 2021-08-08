@@ -47,7 +47,6 @@ class IPVFutureTest extends TestCase
             'v1',
             'v',
             '',
-            'vFF.Z',
             'vFG./',
             'v1./',
             'v1.?',
@@ -68,7 +67,10 @@ class IPVFutureTest extends TestCase
             return [$value, false];
         }, self::invalidValues());
 
-        return $validValues + $invalidValues;
+        return array_merge(
+            $validValues,
+            $invalidValues
+        );
     }
 
     /**
